@@ -10,6 +10,46 @@
   pointer-events: none;
 }
 
+.messages_block {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+
+.messages_form {
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px;
+}
+
+.message_btn {
+  border-radius: 10px;
+  background: #9cccf7;
+  box-shadow: 5px 20px 50px rgb(16 112 177 / 20%);
+}
+
+.message_text {
+  border: 1px solid #356EAD;
+  box-sizing: border-box;
+  border-radius: 10px;
+  min-height: 72px;
+  width: 100%;
+  text-indent: 43px;
+  font-weight: 300;
+  font-size: 16px;
+  letter-spacing: 0.04em;
+  color: #1F3F68;
+
+}
+
+.message_list {
+  box-shadow: 5px 10px 50px rgb(16 112 177 / 20%);
+  border-radius: 10px;
+  width: 400px;
+
+}
+
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
