@@ -1,19 +1,35 @@
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
 .App {
+
   text-align: center;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  align-items: self-start;
+  padding: 2%;
 }
+
+
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
 
+.chatBlock {
+  box-shadow: 5px 20px 50px rgb(16 112 177 / 20%);
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
 .messages_block {
   display: flex;
   justify-content: space-around;
-  margin-top: 10px;
+  gap: 10px;
 }
 
 .messages_form {
@@ -45,7 +61,8 @@
 .message_list {
   box-shadow: 5px 10px 50px rgb(16 112 177 / 20%);
   border-radius: 10px;
-  width: 400px;
+  padding: 3px;
+  min-height: 100px;
 
 }
 
