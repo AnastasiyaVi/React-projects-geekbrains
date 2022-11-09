@@ -32,17 +32,6 @@
   gap: 10px;
 }
 
-.messages_form {
-  display: flex;
-  flex-direction: column;
-  margin-right: 20px;
-}
-
-.message_btn {
-  border-radius: 10px;
-  background: #9cccf7;
-  box-shadow: 5px 20px 50px rgb(16 112 177 / 20%);
-}
 
 .message_text {
   border: 1px solid #356EAD;

@@ -1,7 +1,8 @@
 import React from 'react';
 import './Message.css';
+import { AUTHORS } from '../Author'
 
-export const Message = (props) => {
+export const Message = ({ message }) => {
     // return (
     //     <div className="message_main">Message: <p className="message_text">{props.text}</p></div>
     // )
@@ -9,12 +10,13 @@ export const Message = (props) => {
     return (
         <div className='message_li'>
             <div className="MessageData">
-                {props.message.author}
+                {message.author === AUTHORS.HUMAN}
 
             </div>
             <div className="MessageText">
-                {props.message.text}
+                {message.text}
             </div>
+            {message.author !== AUTHORS.HUMAN}
         </div>
     )
 }
