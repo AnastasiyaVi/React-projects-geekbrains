@@ -1,17 +1,8 @@
-
-import './App.css';
-import { Routers } from './components/Routes';
-
-
+import "./App.css";
+import { Routers } from "./routes";
 
 function App() {
-
-  return (
-
-    <Routers />
-
-
-  );
+  return <Routers />;
 }
 
 export default App;
