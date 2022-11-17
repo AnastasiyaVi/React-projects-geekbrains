@@ -9,14 +9,19 @@ import { useState, useCallback } from "react";
 import { Link } from "react-router-dom";
 import Button from "@mui/material/Button";
 import { Form } from "react-bootstrap";
+import { useDispatch, useSelector } from 'react-redux';
+import { selectChats } from '../../store/chats/selectors';
+import { addChat, deleteChat } from '../../store/chats/actions'
 
-export const ChatList = ({ chats, onAddChat, onDeleteChat }) => {
+export const ChatList = () => {
   const [value, setValue] = useState("");
+  const chats = useSelector(selectChats);
+  const dispatch = useDispatch();
 
   const handleSubmit = (event) => {
     event.preventDefault();
     if (value) {
-      onAddChat(value);
+      handleAddChat(value);
     }
     setValue("");
   };
@@ -25,9 +30,13 @@ export const ChatList = ({ chats, onAddChat, onDeleteChat }) => {
     setValue(event.target.value);
   }, []);
 
-  const deleteChat = (id) => {
-    onDeleteChat(id);
-  };
+  const handleAddChat = useCallback((name) => {
+    dispatch(addChat(name));
+  }, [dispatch]);
+
+  const handleDeleteChat = useCallback((id) => {
+    dispatch(deleteChat(id));
+  }, [dispatch]);
 
   return (
     <div className="chatBlock">
@@ -38,7 +47,7 @@ export const ChatList = ({ chats, onAddChat, onDeleteChat }) => {
               <Avatar className="ContactImg" src={item.img} alt="" />
               <p className="ContactName"> {item.name} </p>
             </Link>
-            <Button className="DeleteBtn" onClick={() => deleteChat(item.id)}>
+            <Button className="DeleteBtn" onClick={() => handleDeleteChat(item.id)}>
               Delete
             </Button>
           </ListItem>

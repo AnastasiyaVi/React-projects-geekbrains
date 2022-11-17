@@ -1,44 +1,34 @@
 import React from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { toggleCheckBox, toggleShowName } from "../../store/profile/actions";
+import { toggleCheckBox } from "../../store/profile/actions";
+import { selectorProfile } from '../../store/profile/selectors';
+import { shallowEqual } from "react-redux";
+
 
 function Profile() {
-    const { checked, showName, name } = useSelector((state) => state.checked);
+    const { checked } = useSelector(selectorProfile, shallowEqual);
     const dispatch = useDispatch();
 
     const handleClick = () => {
         dispatch(toggleCheckBox)
     };
-    const setShowName = () => {
-        dispatch(toggleShowName);
-    };
+    // const setShowName = () => {
+    //     dispatch(toggleShowName);
+    // };
 
     return (
         <>
 
             <h3>This is Profile page</h3>
-            <input
-                type="checkbox"
-                checked={checked}
-                name={showName}
-                value={showName}
-                onChange={setShowName}
-                onClick={handleClick}
-            />
-
-            <span>Show Name & click checkbox</span>
-            {showName && <div>{name}</div>}
-
-
-            {/* <div>
-                <input type="checkbox" id="scales" name="scales" checked={checked} />
-
+            <div>
+                <input type="checkbox" id="scales" name="scales" readOnly checked={checked} />
+                <button onClick={handleClick}>Change store state</button>
             </div>
-            <button onClick={handleClick}>ChangeClick</button> */}
+
+
+
         </>
     )
 }
 
 export default Profile;
-
-
