@@ -4,7 +4,7 @@ import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Row, Col } from 'react-bootstrap';
-import { ChatList } from '../ChatList';
+import { ChatList } from '../ChatList/ChatListContainer';
 import "./Chats.css";
 import { selectIfChatExists } from '../../store/chats/selectors';
 import { MessageList } from '../MessageList';

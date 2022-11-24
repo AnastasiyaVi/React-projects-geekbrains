@@ -23,10 +23,10 @@ export const MessageList = ({ chatId, chatExists }) => {
             !!chatId &&
             currentMessage?.[currentMessage.length - 1]?.author === AUTHORS.HUMAN
         ) {
-            sendMessage(
-                'Я робот',
-                AUTHORS.BOT
-            );
+            // sendMessage(
+            //     'Я робот',
+            //     AUTHORS.BOT
+            // );
         }
     }, [messages, chatId, sendMessage]);
 
