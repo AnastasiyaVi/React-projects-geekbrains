@@ -1,8 +1,13 @@
 import { DELETE_CHAT } from "../chats/actions";
 import { ADD_MESSAGE, DELETE_MESSAGE } from "./actions";
 
+// statuses - 'idle' | 'fetching' | 'succeeded' | 'failed',
+// error - string | null
+
 const initialState = {
-    messages: {}
+    messages: {},
+    status: 'idle',
+    error: null
 }
 
 export const messagesReducer = (state = initialState, { type, payload }) => {

@@ -1,16 +1,11 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux'
-//import thunk from 'redux-thunk';
-import createSagaMiddleware from 'redux-saga'
 import { profileReducer } from './profile/reducer';
 import { chatReducer } from './chats/reducer';
 import { messagesReducer } from './messages/reducer';
 import { persistStore, persistReducer } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
-import watchAddMessage from './messages/saga'
-
-const sagaMiddleware = createSagaMiddleware() // создаем милдвар saga
-
-
+import thunk from 'redux-thunk'
+import { cataasReducer } from './cataas/reducer';
 
 // создаем объект конфигурации для persist
 const persistConfig = {
@@ -22,7 +17,8 @@ const persistConfig = {
 const rootReducer = combineReducers({
     profile: profileReducer,
     chat: chatReducer,
-    messages: messagesReducer
+    messages: messagesReducer,
+    cataas: cataasReducer
 });
 
 // export const store = createStore(
@@ -38,10 +34,7 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 // создаем store с использованием persistedReducer
 export const store = createStore(
     persistedReducer,
-    composeEnhancers(applyMiddleware(sagaMiddleware))
+    composeEnhancers(applyMiddleware(thunk))
 );
-
-// run the saga
-sagaMiddleware.run(watchAddMessage)
 
 export const persistor = persistStore(store);

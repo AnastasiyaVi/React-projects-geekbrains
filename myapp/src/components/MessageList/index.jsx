@@ -1,5 +1,5 @@
 import React from 'react';
-import { useEffect, useCallback } from 'react';
+import { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Message } from '../Message'
 import { Card } from 'react-bootstrap';
@@ -12,31 +12,11 @@ import { AUTHORS } from "../Author";
 export const MessageList = ({ chatId, chatExists }) => {
     const dispatch = useDispatch();
     const messages = useSelector(selectMessages);
+    // const state = useSelector(state => state.messages.status)
 
-    const sendMessage = useCallback((text, author) => {
-        dispatch(addMessage(chatId, text, author))
-    }, [chatId, dispatch]);
-
-    useEffect(() => {
-        const currentMessage = messages[chatId];
-        if (
-            !!chatId &&
-            currentMessage?.[currentMessage.length - 1]?.author === AUTHORS.HUMAN
-        ) {
-            // sendMessage(
-            //     'Я робот',
-            //     AUTHORS.BOT
-            // );
-        }
-    }, [messages, chatId, sendMessage]);
-
-    const handleAddMessage = useCallback(
-        (text) => {
-            sendMessage(
-                text,
-                AUTHORS.HUMAN
-            )
-        }, [sendMessage]);
+    const handleAddMessage = useCallback((text) => {
+        dispatch(addMessage(chatId, text, AUTHORS.HUMAN))
+    }, [dispatch, chatId]);
 
     return (
         <Card className="m-0 p-0">
