@@ -1,19 +1,34 @@
 import firebase from "firebase/compat/app";
-import 'firebase/compat/auth';
-import 'firebase/compat/database';
+import "firebase/compat/auth";
+import "firebase/compat/database";
+import {
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  signOut as firebaseSignOut,
+} from "firebase/auth";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyDwr9CVpH6F6CcsyWE9lgNF0oKA5zVHsrA",
-    authDomain: "react-students-e67dd.firebaseapp.com",
-    databaseURL: "https://react-students-e67dd-default-rtdb.europe-west1.firebasedatabase.app",
-    projectId: "react-students-e67dd",
-    storageBucket: "react-students-e67dd.appspot.com",
-    messagingSenderId: "965127352733",
-    appId: "1:965127352733:web:8961d2130957d6dee57f74"
+  apiKey: "AIzaSyA5pyQP96iqLP17YnSmAcMbUieT-WZsrv8",
+  authDomain: "nastyona-react-gb.firebaseapp.com",
+  databaseURL: "https://nastyona-react-gb-default-rtdb.firebaseio.com",
+  projectId: "nastyona-react-gb",
+  storageBucket: "nastyona-react-gb.appspot.com",
+  messagingSenderId: "659548062977",
+  appId: "1:659548062977:web:9fbe9979fb1d853ef7c700",
 };
 
 firebase.initializeApp(firebaseConfig);
 export const auth = firebase.auth();
 export const database = firebase.database();
 
+export const signUp = async (email, pass) => {
+  await createUserWithEmailAndPassword(auth, email, pass);
+};
 
+export const login = async (email, pass) => {
+  await signInWithEmailAndPassword(auth, email, pass);
+};
+
+export const signOut = async () => {
+  await firebaseSignOut(auth);
+};

@@ -26,18 +26,15 @@ export const Routers = () => {
                 Cataas
             </Link>
             <Routes>
-                <Route exact path="/" element={<Home/>}/>
-                <Route exact path="/signup" element={<SignUp/>}/>
-                {/*<Route exact path="/login">*/}
-                {/*    <Login />*/}
-                {/*</Route>*/}
-                <Route exact path="/chats" element={<Chats/>}>
-                    <Route exact path="/chats/:chatId" element={<Chats/>}/>
+                <Route exact path="/" element={<Home />} />
+                <Route exact path="/signup" element={<SignUp />} />
+                <Route exact path="/chats" element={<Chats />}>
+                    <Route exact path="/chats/:chatId" element={<Chats />} />
                 </Route>
                 {/* <Route exact path="/chats/:chatId" element={<Chats />} /> */}
-                <Route path="/cataas" element={<Cataas/>}/>
-                <Route path="/profile" element={<Profile/>}/>
-                <Route path="*" element={<Error/>}/>
+                <Route path="/cataas" element={<Cataas />} />
+                <Route path="/profile" element={<Profile />} />
+                <Route path="*" element={<Error />} />
             </Routes>
         </BrowserRouter>
     );

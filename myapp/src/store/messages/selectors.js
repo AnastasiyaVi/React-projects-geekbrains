@@ -1,1 +1,2 @@
-export const selectMessages = (state) => state.messages.messages;
+export const selectMessages = (state, chatId) =>
+  state.messages.messages[chatId] ?? [];
