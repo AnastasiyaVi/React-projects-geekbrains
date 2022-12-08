@@ -1,6 +1,6 @@
-import firebase from "firebase/compat/app";
-import "firebase/compat/auth";
-import "firebase/compat/database";
+import firebase from "firebase/app";
+import "firebase/auth";
+import "firebase/database";
 import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
@@ -17,9 +17,9 @@ const firebaseConfig = {
   appId: "1:659548062977:web:9fbe9979fb1d853ef7c700",
 };
 
-firebase.initializeApp(firebaseConfig);
-export const auth = firebase.auth();
-export const database = firebase.database();
+firebase?.initializeApp(firebaseConfig);
+export const auth = firebase?.auth();
+export const database = firebase?.database();
 
 export const signUp = async (email, pass) => {
   await createUserWithEmailAndPassword(auth, email, pass);
